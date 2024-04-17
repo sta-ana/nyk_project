@@ -3,17 +3,55 @@ Upload Csv
 @endsection
 
 @section('content')
+@inject('SchoolYears', App\Models\SchoolYear::class)
 
-<div>
-    <div class=" row bg-white  w-50 shadow  " style="margin-top: 2cm; margin-left: 6cm; height: 10cm;">
+<div class="p-5">
+    <div class="row justify-content-center">
+        <form class="p-5 bg-white shadow rounded-3 border w-50">
+            <div class="row mb-3">
+                <div class="col">
+                    <div>
+                        <label class="form-label">Upload CSV here</label>
+                        <input type="file" class="form-control" id="fileupload" accept=".csv">
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col">
+                    <div>
+                        <label class="form-label">Choose a School Year</label>
+                        <select name="" id="" class="form-select">
+                            <option value=""></option>
+                            @foreach($SchoolYears::get() as $sy)
+                            <option value="{{$sy->id}}">{{$sy->school_year}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-end">
+                <div class="col-auto">
+                    <button class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+    <!-- <div class=" row bg-white  w-50 shadow  " style="margin-top: 2cm; margin-left: 6cm; height: 10cm;">
         <div style="margin-left: 2cm;">
             <div style="margin-top: 3cm;">
                 <label for="fileupload">Upload CSV File Here</label>
             </div>
             <input type="file" class="form-control w-75 mt-2" id="fileupload" accept=".csv">
             <br>
+            <select name="" id="" class="form-select w-50">
+                <option value=""></option>
+                @foreach($SchoolYears::get() as $sy)
+                <option value="{{$sy->id}}">{{$sy->school_year}}</option>
+                @endforeach
+            </select>
             <button class="bg-primary btn btn-primary text-center ">Submit</button>
         </div>
 
-    </div>
+    </div> -->
 </div>
