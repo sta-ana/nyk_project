@@ -11,7 +11,7 @@ Upload Csv
             <div class="row mb-3">
                 <div class="col">
                     <div>
-                        <label class="form-label">Upload CSV here</label>
+                        <label class="form-label"><h6>Upload CSV here</h6></label>
                         <input type="file" class="form-control" id="fileupload" accept=".csv">
                     </div>
                 </div>
@@ -19,7 +19,7 @@ Upload Csv
             <div class="row mb-3">
                 <div class="col">
                     <div>
-                        <label class="form-label">Choose a School Year</label>
+                        <label class="form-label"><h6>Choose School Year</h6></label>
                         <select name="" id="" class="form-select">
                             <option value=""></option>
                             @foreach($SchoolYears::get() as $sy)

@@ -33,7 +33,7 @@ Route::middleware(['guest'])->group(function () {
 
 // Route::middleware(['auth'])->group(function () {  
 // });
-    Route::get('/user/dashboard', Dashboard::class)->name('user.dashboard');
+    Route::get('user/dashboard', Dashboard::class)->name('user.dashboard');
     Route::get('/user/csvupload', Csvupload::class)->name('user.csvupload');
 
     Route::post('user/file-upload', [SchoolYearController::class, 'test'])->name('user.schoolyear.add');
