@@ -7,7 +7,7 @@ Add Student
 
 <div class="p-5">
     <div class="row justify-content-center">
-        <form class="p-5 bg-white shadow rounded-3 border w-50">
+        <form wire:submit="AddStudent" class="p-5 bg-white shadow rounded-3 border w-50">
             <div class="row mb-3">
                 <div class="col">
                     <div>

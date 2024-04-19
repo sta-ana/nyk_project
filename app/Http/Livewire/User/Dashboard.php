@@ -11,8 +11,6 @@ class Dashboard extends Component
     public $totalDocument;
     public function render()
     {
-        $this->totalDocument = Document::count();
-
         return view('livewire.user.dashboard')->extends('layouts.user-app')->with('school_years', SchoolYear::get());
     }
 }

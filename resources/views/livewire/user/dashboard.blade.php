@@ -63,7 +63,7 @@
                     }
                 </style>
 
-                <div class="card    " style="width: 18rem;">
+                <div class="card shadow   " style="width: 18rem;">
                     <div class="card-body">
                         <div class="row"><span class="fw-bold fs-5">Student Data {{$school_year->school_year}}</span>
                         </div>
@@ -83,7 +83,7 @@
                     </div>
                     <div class="card-footer text-end">
                         <!-- View Button -->
-                        <button class="btn-sm "  data-bs-toggle="modal"
+                        <button class="btn-sm btn btn-outline-primary shadow "  data-bs-toggle="modal"
                             data-bs-target="#viewStudentData_{{$school_year->id}}">
                                 view all
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -116,7 +116,6 @@
                                                     <th>Address</th>
                                                     <th>Blood Type</th>
                                                     <th>Coure</th>
-                                                    <th>File</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
@@ -130,12 +129,11 @@
                                                     <td>Calamba City</td>
                                                     <td>AB</td>
                                                     <td>BSIT</td>
-                                                    <td>xxx</td>
                                                     <td>
                                                         <div class="d-flex flex-row gap-1 ">
-                                                            <button class="btn btn-primary ">Edit</button>
-                                                            <button class="btn btn-secondary ">Update</button>
-                                                            <button class="btn btn-danger  ">Delete</button>
+                                                            <button class="btn btn-sm  btn-primary ">Edit</button>
+                                                            <button class="btn btn-sm  btn-secondary ">Update</button>
+                                                            <button class="btn btn-sm  btn-danger  ">Delete</button>
                                                         </div>
                                                     </td>
                                                 </tr>
