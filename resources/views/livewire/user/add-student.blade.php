@@ -11,11 +11,11 @@ Add Student
             <div class="row mb-3">
                 <div class="col">
                     <div>
-                        <div class="text-center mb-4 fw-semibold ">
+                        <div class="text-center mb-4 fw-semibold">
                             <h1>Add Student</h1>
                         </div>
                         <h6>Enter First Name</h6>
-                        <input class="text-center form-control mt-2" type="text" id="firstName" wire:model="firstName">
+                        <input class="form-control mt-2" type="text" id="firstName" wire:model="firstName">
                         <h6>Enter Last Name</h6>
                         <input class="form-control mb-2 " type="text" id="lastName" wire:model="lastName">
                         <h6>Enter Middle Name</h6>
