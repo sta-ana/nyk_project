@@ -10,4 +10,8 @@ class Csvupload extends Component
     {
         return view('livewire.user.csvupload')->extends('layouts.user-app');
     }
+
+    public function test(){
+        dd('test');
+    }
 }
