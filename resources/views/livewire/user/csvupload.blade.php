@@ -7,7 +7,8 @@ Upload Csv
 
 <div class="p-5">
     <div class="row justify-content-center">
-        <form wire:submit.prevent="test" class="p-5 bg-white shadow rounded-3 border w-50">
+        <form wire:submit.prevent="importCSV"  method="post" enctype="multipart/form-data" class="p-5 bg-white shadow rounded-3 border w-50">
+            @csrf
             <div class="row mb-3">
                 <div class="col">
                     <div>
