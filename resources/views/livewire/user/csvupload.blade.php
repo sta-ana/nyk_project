@@ -37,21 +37,4 @@ Upload Csv
 
         </form>
     </div>
-    <!-- <div class=" row bg-white  w-50 shadow  " style="margin-top: 2cm; margin-left: 6cm; height: 10cm;">
-        <div style="margin-left: 2cm;">
-            <div style="margin-top: 3cm;">
-                <label for="fileupload">Upload CSV File Here</label>
-            </div>
-            <input type="file" class="form-control w-75 mt-2" id="fileupload" accept=".csv">
-            <br>
-            <select name="" id="" class="form-select w-50">
-                <option value=""></option>
-                @foreach($SchoolYears::get() as $sy)
-                <option value="{{$sy->id}}">{{$sy->school_year}}</option>
-                @endforeach
-            </select>
-            <button class="bg-primary btn btn-primary text-center ">Submit</button>
-        </div>
-
-    </div> -->
 </div>

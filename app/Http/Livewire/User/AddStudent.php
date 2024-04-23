@@ -12,4 +12,7 @@ class AddStudent extends Component
     {
         return view('livewire.user.add-student')->extends('layouts.user-app');
     }
+    public function test1(){
+        dd('test');
+    }
 }

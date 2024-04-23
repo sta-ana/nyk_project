@@ -1,3 +1,4 @@
+@inject('SchoolYears', App\Models\SchoolYear::class)
 <div>
     <x-slot name="title">
         User - Dashboard
@@ -8,8 +9,52 @@
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-sm btn-success" data-bs-toggle="modal"
                 data-bs-target="#addSchoolYearModal">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-pencil-square" viewBox="0 0 16 16">
+                    <path
+                        d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                    <path fill-rule="evenodd"
+                        d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z" />
+                </svg>
                 Add School Year
             </button>
+
+            <!-- remove schoolyear -->
+            <button type="button" class="btn btn-primary ml-2 btn-danger btn-sm " data-bs-toggle="modal"
+                data-bs-target="#exampleModal">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z" />
+                    <path
+                        d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z" />
+                </svg>
+                Remove School Year
+            </button>
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-body">
+
+                            <h6>Choose School Year</h6>
+                            <select name="" id="" class="form-select">
+                                <option value=""></option>
+                                @foreach($SchoolYears::get() as $sy)
+                                <option value="{{$sy->id}}">{{$sy->school_year}}</option>
+                                @endforeach
+                            </select>
+                            <div class="row justify-content-end mt-3">
+                                <div class="col-auto ">
+                                    <button type="button" class="btn btn-secondary btn-sm"
+                                        data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary btn-sm btn-danger">Remove</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <!-- Modal -->
             <div class="modal fade" id="addSchoolYearModal" data-bs-backdrop="static" data-bs-keyboard="false"
@@ -56,7 +101,7 @@
         <hr>
         <div class="row gy-5 ps-4">
             @foreach ($school_years as $school_year)
-            <div class="col-auto" >
+            <div class="col-auto">
                 <style>
                     .card {
                         border: 3px double #24261d;
@@ -83,9 +128,9 @@
                     </div>
                     <div class="card-footer text-end">
                         <!-- View Button -->
-                        <button class="btn-sm btn btn-outline-primary shadow "  data-bs-toggle="modal"
+                        <button class="btn-sm btn btn-outline-primary shadow " data-bs-toggle="modal"
                             data-bs-target="#viewStudentData_{{$school_year->id}}">
-                                view all
+                            view all
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-arrow-right" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd"
@@ -97,7 +142,7 @@
                             aria-labelledby="viewStudentDataLabel_{{$school_year->id}}" aria-hidden="true">
                             <div class="modal-dialog modal-fullscreen">
                                 <div class="modal-content">
-                                    <div class="modal-header">
+                                    <div class="modal-header shadow-sm">
                                         <h1 class="modal-title fs-5" id="viewStudentDataLabel_{{$school_year->id}}">
                                             STUDENT DATA FOR {{$school_year->school_year}}
                                         </h1>
@@ -105,7 +150,7 @@
                                             aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        <table class="table table-bordered text-start text-nowrap ">
+                                        <table class="table table-bordered text-start text-nowrap shadow">
                                             <thead>
                                                 <tr>
                                                     <th>Last Name</th>
@@ -131,9 +176,24 @@
                                                     <td>BSIT</td>
                                                     <td>
                                                         <div class="d-flex flex-row gap-1 ">
-                                                            <button class="btn btn-sm  btn-primary ">Edit</button>
-                                                            <button class="btn btn-sm  btn-secondary ">Update</button>
-                                                            <button class="btn btn-sm  btn-danger  ">Delete</button>
+                                                            <button class="btn btn-sm  btn-primary"><svg
+                                                                    xmlns="http://www.w3.org/2000/svg" width="16"
+                                                                    height="16" fill="currentColor"
+                                                                    class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                                                    <path
+                                                                        d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                                                                    <path fill-rule="evenodd"
+                                                                        d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z" />
+                                                                </svg> Update</button>
+                                                            <button class="btn btn-sm  btn-danger"><svg
+                                                                    xmlns="http://www.w3.org/2000/svg" width="16"
+                                                                    height="16" fill="currentColor" class="bi bi-trash"
+                                                                    viewBox="0 0 16 16">
+                                                                    <path
+                                                                        d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z" />
+                                                                    <path
+                                                                        d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z" />
+                                                                </svg> Delete</button>
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -144,7 +204,6 @@
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary"
                                             data-bs-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary">Save changes</button>
                                     </div>
                                 </div>
                             </div>

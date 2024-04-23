@@ -6,13 +6,19 @@ Add Student
 @inject('SchoolYears', App\Models\SchoolYear::class)
 
 <div class="p-5">
-    <div class="row justify-content-center">
-        <form wire:submit="AddStudent" class="p-5 bg-white shadow rounded-3 border w-50">
+    <style>
+        #title{
+            font-family: 'Poppins', sans-serif;
+            font-weight: 350;
+        }
+    </style>
+    <div class="row justify-content-center ">
+        <form wire:submit.prevent="test1" class="p-5 bg-white shadow rounded-3 border w-50">
             <div class="row mb-3">
                 <div class="col">
                     <div>
                         <div class="text-center mb-4 fw-semibold">
-                            <h1>Add Student</h1>
+                            <h1 id="title"> Add Student</h1>
                         </div>
                         <h6>Enter First Name</h6>
                         <input class="form-control mt-2" type="text" id="firstName" wire:model="firstName">
@@ -51,16 +57,18 @@ Add Student
                             <option value="bshm">BSCOE</option>
                         </select>
                         <h6>Upload Student File</h6>
-                        <input class="form-control mb-1" type="File" id="bloodType" accept=".pdf" wire:model="stud_file">
+                        <input class="form-control mb-1" type="File" id="bloodType" accept=".pdf"
+                            wire:model="stud_file">
 
-                        <label class="form-label"><h6>Choose School Year</h6></label>
+                        <label class="form-label">
+                            <h6>Choose School Year</h6>
+                        </label>
                         <select name="" id="" class="form-select">
                             <option value=""></option>
                             @foreach($SchoolYears::get() as $sy)
                             <option value="{{$sy->id}}">{{$sy->school_year}}</option>
                             @endforeach
                         </select>
-
                     </div>
                 </div>
             </div>
@@ -69,7 +77,6 @@ Add Student
                     <button class="btn btn-primary">Submit</button>
                 </div>
             </div>
-
         </form>
     </div>
-    @endsection
+</div>
