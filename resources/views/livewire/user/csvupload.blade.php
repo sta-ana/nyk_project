@@ -7,13 +7,13 @@ Upload Csv
 
 <div class="p-5">
     <div class="row justify-content-center">
-        <form wire:submit.prevent="importCSV"  method="post" enctype="multipart/form-data" class="p-5 bg-white shadow rounded-3 border w-50">
+        <form wire:submit.prevent="importForm" method="POST" enctype="multipart/form-data" class="p-5 bg-white shadow rounded-3 border w-50">
             @csrf
             <div class="row mb-3">
                 <div class="col">
                     <div>
                         <label class="form-label"><h6>Upload CSV here</h6></label>
-                        <input type="file" class="form-control" id="fileupload" accept=".csv">
+                        <input type="file" wire:model="file" class="form-control" accept=".csv">
                     </div>
                 </div>
             </div>
@@ -32,7 +32,7 @@ Upload Csv
             </div>
             <div class="row justify-content-end">
                 <div class="col-auto">
-                    <button class="btn btn-primary">Submit</button>
+                    <button type="submit" value="upload" class="btn btn-primary">Submit</button>
                 </div>
             </div>
 
