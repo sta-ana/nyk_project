@@ -6,7 +6,6 @@ Add Student
 @inject('SchoolYears', App\Models\SchoolYear::class)
 
 <div class="p-5">
-
     <div class="row justify-content-center">
         <form wire:submit.prevent="addStudent" class="p-5 bg-white shadow rounded-3 border w-50">
             <div class="row mb-3">
@@ -83,7 +82,7 @@ Add Student
                         @enderror
                         <br>
                         <!-- <h6>Upload Student File</h6>
-                        <input class="form-control mb-1" type="File" id="stud_file" accept=".pdf" wire:model="stud_file"> -->
+                            <input class="form-control mb-1" type="File" id="stud_file" accept=".pdf" wire:model="stud_file"> -->
 
                         <label class="form-label">
                             <h6>Choose School Year</h6>
@@ -103,7 +102,7 @@ Add Student
             </div>
             <div class="row justify-content-end">
                 <div class="col-auto align-content-center ">
-                    <button class="btn btn-primary">Submit</button>
+                    <button class="btn btn-primary" wire:submit="">Submit</button>
                 </div>
             </div>
 
