@@ -20,20 +20,41 @@ Add Student
                         @error('firstName')
                         <small class="text-danger">{{$message}}</small>
                         @enderror
+
                         <h6>Enter Last Name</h6>
                         <input class="form-control mb-2 " type="text" id="lastName" wire:model="lastName">
+                        @error('lastName')
+                        <small class="text-danger">{{$message}}</small>
+                        @enderror
+
                         <h6>Enter Middle Name</h6>
                         <input class="form-control mb-2" type="text" id="middleName" wire:model="middleName">
+                        @error('middleName')
+                        <small class="text-danger">{{$message}}</small>
+                        @enderror
+
                         <h6>Enter Birthday</h6>
                         <input class="form-control mb-2" type="date" id="birthDay" wire:model="birthDate">
+                        @error('birthDate')
+                        <small class="text-danger">{{$message}}</small>
+                        @enderror
+
                         <h6>Enter Gender</h6>
                         <select class="form-select mb-2" name="gender" id="gender" wire:model="gender">
                             <option value="empty"> </option>
                             <option value="male">Male</option>
                             <option value="female">Female</option>
                         </select>
+                        @error('gender')
+                        <small class="text-danger">{{$message}}</small>
+                        @enderror
+
                         <h6>Enter Address</h6>
                         <input class="form-control mb-2" type="text" id="address" name="address" wire:model="address">
+                        @error('address')
+                        <small class="text-danger">{{$message}}</small>
+                        @enderror
+
                         <h6>Enter Blood Type</h6>
                         <select class="form-select mb-2" name="bloodType" id="bloodType" wire:model="bloodType">
                             <option value="empty"> </option>
@@ -45,8 +66,11 @@ Add Student
                             <option value="O-">O-</option>
                             <option value="AB+">AB+</option>
                             <option value="AB-">AB-</option>
-
                         </select>
+                        @error('bloodType')
+                        <small class="text-danger">{{$message}}</small>
+                        @enderror
+
                         <h6>Enter Course</h6>
                         <select class="form-select mb-2" id="course" wire:model="course">
                             <option value="empty"> </option>
@@ -54,6 +78,10 @@ Add Student
                             <option value="bshm">BSHM</option>
                             <option value="bshm">BSCOE</option>
                         </select>
+                        @error('course')
+                        <small class="text-danger">{{$message}}</small>
+                        @enderror
+                        <br>
                         <!-- <h6>Upload Student File</h6>
                         <input class="form-control mb-1" type="File" id="stud_file" accept=".pdf" wire:model="stud_file"> -->
 
@@ -66,6 +94,9 @@ Add Student
                             <option value="{{$sy->id}}">{{$sy->school_year}}</option>
                             @endforeach
                         </select>
+                        @error('school_year')
+                        <small class="text-danger">{{$message}}</small>
+                        @enderror
 
                     </div>
                 </div>

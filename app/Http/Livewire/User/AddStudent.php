@@ -27,8 +27,10 @@ class AddStudent extends Component
             'school_year' => ['required', 'numeric'],
         ];
     }
-
     public function addStudent() {
         $this->validate();
+    }
+    public function insertStudent(){
+        
     }
 }

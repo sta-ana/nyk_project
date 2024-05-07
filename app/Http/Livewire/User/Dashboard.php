@@ -9,6 +9,10 @@ use App\Models\Student;
 
 class Dashboard extends Component
 {
+    protected $listeners = [
+        'StudentDeleted',
+    ];
+
     public $students;
     public function render()
     {
@@ -18,6 +22,7 @@ class Dashboard extends Component
     {
         $this->students = Document::where('user_id', auth()->user()->id)->get();
     }
+    
     public function delschoolyear($schoolyear){
         $sy = SchoolYear::where('school_year', $schoolyear)->firstOrFail();
         if ($sy) {
@@ -32,6 +37,12 @@ class Dashboard extends Component
                 return redirect()->to('/user/dashboard');
             }
         }
+    }
+    public function delStudent($id){
+        Student::destroy($id);
+    }
+    public function StudentDeleted(){
+            
     }
        
 }

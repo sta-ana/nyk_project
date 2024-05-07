@@ -11,6 +11,7 @@ use App\Http\Livewire\User\Login;
 use App\Http\Livewire\User\Register;
 use App\Http\Livewire\User\AddStudent;
 use App\Http\Livewire\User\Csvupload;
+use App\Http\Livewire\User\studentList;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SchoolYearController;
 use App\Http\Controllers\ImportController;
@@ -41,7 +42,6 @@ Route::middleware(['guest'])->group(function () {
     Route::post('user/file-upload', [SchoolYearController::class, 'test'])->name('user.schoolyear.add');
     Route::get('/user/Add-Student', AddStudent::class)->name('user.add-student');
     Route::post('/import-csv', [ImportController::class, 'importCSV'])->name('import.csv');
-
 
 
 // admin routes
