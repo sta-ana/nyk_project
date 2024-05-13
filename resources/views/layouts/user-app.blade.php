@@ -19,7 +19,7 @@
 </head>
 
 <body class="sb-nav-fixed" style="background: rgb(241, 237, 237);">
-    <nav class="sb-topnav navbar navbar-expand navbar-dark" style="background: rgb(89, 122, 205);">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark" style="background: rgb(54, 55, 61);">
 
         <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><a class="navbar-brand"
                 href="#">Document Management System</a></button>
