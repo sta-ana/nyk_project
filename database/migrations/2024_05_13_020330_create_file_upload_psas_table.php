@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('school_years', function (Blueprint $table) {
+        Schema::create('file_upload_psas', function (Blueprint $table) {
             $table->id();
-            $table->string('school_year');
             $table->timestamps();
+            $tablle->string('psa');
         });
     }
 
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('school_years');
+        Schema::dropIfExists('file_upload_psas');
     }
 };
