@@ -25,31 +25,42 @@
 
 
                         <!-- Add School Year Form -->
-                        <form action="{{route('user.schoolyear.add')}}" method="POST">
-                            @csrf
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="addSchoolYearLabel">Add School Year</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="row">
-                                    <div class="input-group">
-                                        <span class="input-group-text">
-                                            School Year
-                                        </span>
-                                        <select name="school_year" id="school_year" class="form-select">
-                                            @for($i = date("Y") + 10; $i > date("Y") - 10; $i--)
-                                            @if (date("Y") == $i)
-                                            <option value="{{$i}}" selected>{{ $i }}</option>
-                                            @else
-                                            <option value="{{$i}}">{{ $i }}</option>
-                                            @endif
-                                            @endfor
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
+                        @if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
+<form action="{{ route('user.schoolyear.add') }}" method="POST">
+    @csrf
+    <div class="modal-header">
+        <h5 class="modal-title" id="addSchoolYearLabel">Add School Year</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="input-group">
+                <span class="input-group-text">School Year</span>
+                <select name="school_year" id="school_year" class="form-select">
+                    @for($i = date("Y") + 10; $i > date("Y") - 10; $i--)
+                        <option value="{{ $i }}" {{ date("Y") == $i ? 'selected' : '' }}>{{ $i }}</option>
+                    @endfor
+                </select>
+            </div>
+        </div>
+    </div>
+
+
                             <div class="modal-footer">
                                 <button type="submit" class="btn btn-success">Add</button>
                                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>

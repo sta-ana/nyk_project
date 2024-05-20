@@ -40,6 +40,11 @@ Route::middleware(['guest'])->group(function () {
     Route::get('/user/csvupload', Csvupload::class)->name('user.csvupload');
     Route::get('/student/{schoolYearId}', [StudentController::class, 'showStudentData'])->name('student.show');
     Route::post('user/file-upload', [SchoolYearController::class, 'test'])->name('user.schoolyear.add');
+
+    // Route::post('/schoolyear/add', [SchoolYearController::class, 'test'])->name('user.schoolyear.add');
+
+
+
     Route::get('/user/Add-Student', AddStudent::class)->name('user.add-student');
     Route::post('/import-csv', [ImportController::class, 'importCSV'])->name('import.csv');
 
