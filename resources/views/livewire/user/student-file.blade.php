@@ -3,7 +3,7 @@
         <h5>Upload File For Student</h5>
         <div class="col">
             <div>
-                @livewire('user.psa-file-upload')
+                <livewire:user.psa-file-upload :selectedStudentId="$selectedStudentId"/>
             </div>
 
             <div>
