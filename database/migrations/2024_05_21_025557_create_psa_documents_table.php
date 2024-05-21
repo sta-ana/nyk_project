@@ -4,23 +4,34 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateStudentFilesTable extends Migration
+return new class extends Migration
 {
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
     public function up()
     {
-        Schema::create('student_files', function (Blueprint $table) {
+        Schema::create('psa_documents', function (Blueprint $table) {
             $table->id();
+            $table->string('file_name');
+            $table->string('original_filename');
             $table->unsignedBigInteger('student_id');
-            $table->string('file_type');
-            $table->string('file_path');
             $table->timestamps();
 
             $table->foreign('student_id')->references('id')->on('students')->onDelete('cascade');
         });
+        
     }
 
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
     public function down()
     {
-        Schema::dropIfExists('student_files');
+        Schema::dropIfExists('psa_documents');
     }
-}
+};

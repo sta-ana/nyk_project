@@ -26,39 +26,41 @@
 
                         <!-- Add School Year Form -->
                         @if (session('success'))
-    <div class="alert alert-success">
-        {{ session('success') }}
-    </div>
-@endif
+                        <div class="alert alert-success">
+                            {{ session('success') }}
+                        </div>
+                        @endif
 
-@if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
+                        @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                <span>{{ $error }}</span>
+                                @endforeach
+                            </ul>
+                        </div>
+                        @endif
 
-<form action="{{ route('user.schoolyear.add') }}" method="POST">
-    @csrf
-    <div class="modal-header">
-        <h5 class="modal-title" id="addSchoolYearLabel">Add School Year</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-    </div>
-    <div class="modal-body">
-        <div class="row">
-            <div class="input-group">
-                <span class="input-group-text">School Year</span>
-                <select name="school_year" id="school_year" class="form-select">
-                    @for($i = date("Y") + 10; $i > date("Y") - 10; $i--)
-                        <option value="{{ $i }}" {{ date("Y") == $i ? 'selected' : '' }}>{{ $i }}</option>
-                    @endfor
-                </select>
-            </div>
-        </div>
-    </div>
+                        <form action="{{ route('user.schoolyear.add') }}" method="POST">
+                            @csrf
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="addSchoolYearLabel">Add School Year</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="input-group">
+                                        <span class="input-group-text">School Year</span>
+                                        <select name="school_year" id="school_year" class="form-select">
+                                            @for($i = date("Y") + 10; $i > date("Y") - 10; $i--)
+                                            <option value="{{ $i }}" {{ date("Y")==$i ? 'selected' : '' }}>{{ $i }}
+                                            </option>
+                                            @endfor
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
 
 
                             <div class="modal-footer">
@@ -151,11 +153,13 @@
 
 
                         <!-- Modal for student list-->
-                        <div wire:ignore wire:key="viewStudentData_{{$school_year->id}}" class="modal " data-bs-keyboard="false" id="viewStudentData_{{$school_year->id}}" tabindex="-1"
+                        <div wire:ignore wire:key="viewStudentData_{{$school_year->id}}" class="modal "
+                            data-bs-keyboard="false" id="viewStudentData_{{$school_year->id}}" tabindex="-1"
                             aria-labelledby="viewStudentDataLabel_{{$school_year->id}}" aria-hidden="true">
                             <div class="modal-dialog modal-fullscreen">
                                 <div class="modal-content">
-                                    <livewire:user.student-data-window :school_year='$school_year' wire:key="dataWindow_{{$school_year->id}}"></livewire:user.student-data-window>
+                                    <livewire:user.student-data-window :school_year='$school_year'
+                                        wire:key="dataWindow_{{$school_year->id}}"></livewire:user.student-data-window>
                                 </div>
                             </div>
                         </div>

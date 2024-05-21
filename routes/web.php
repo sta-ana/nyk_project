@@ -10,6 +10,7 @@ use App\Http\Livewire\User\Document;
 use App\Http\Livewire\User\Login;
 use App\Http\Livewire\User\Register;
 use App\Http\Livewire\User\AddStudent;
+use App\Http\Livewire\User\FileList;
 use App\Http\Livewire\User\Csvupload;
 use App\Http\Livewire\User\studentList;
 use Illuminate\Support\Facades\Route;
@@ -38,6 +39,7 @@ Route::middleware(['guest'])->group(function () {
 // });
     Route::get('user/dashboard', Dashboard::class)->name('user.dashboard');
     Route::get('/user/csvupload', Csvupload::class)->name('user.csvupload');
+    Route::get('/user/file-list', FileList::class)->name('user.file-list');
     Route::get('/student/{schoolYearId}', [StudentController::class, 'showStudentData'])->name('student.show');
     Route::post('user/file-upload', [SchoolYearController::class, 'test'])->name('user.schoolyear.add');
 
