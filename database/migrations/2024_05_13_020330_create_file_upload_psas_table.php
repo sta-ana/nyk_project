@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('file_upload_psas', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $tablle->string('psa');
+            $table->string('psa');
         });
     }
 
