@@ -153,13 +153,13 @@
 
 
                         <!-- Modal for student list-->
-                        <div wire:ignore wire:key="viewStudentData_{{$school_year->id}}" class="modal "
-                            data-bs-keyboard="false" id="viewStudentData_{{$school_year->id}}" tabindex="-1"
+                        <div wire:ignore wire:key="viewStudentData_{{$school_year->id}}" class="modal fade"
+                            data-bs-backdrop="static" data-bs-keyboard="false" id="viewStudentData_{{$school_year->id}}" tabindex="-1"
                             aria-labelledby="viewStudentDataLabel_{{$school_year->id}}" aria-hidden="true">
-                            <div class="modal-dialog modal-fullscreen">
+                            <div class="modal-dialog modal-xl">
                                 <div class="modal-content">
                                     <livewire:user.student-data-window :school_year='$school_year'
-                                        wire:key="dataWindow_{{$school_year->id}}"></livewire:user.student-data-window>
+                                    wire:key="dataWindow_{{$school_year->id}}">
                                 </div>
                             </div>
                         </div>

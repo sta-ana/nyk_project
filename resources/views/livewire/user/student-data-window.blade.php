@@ -3,8 +3,6 @@
         <h1 class="modal-title fs-5" id="viewStudentDataLabel_{{$school_year->id}}">
             STUDENT DATA FOR {{$school_year->school_year}}
         </h1>
-        <!-- <button type="button" class="btn-close" data-bs-dismiss="modal"
-            aria-label="Close"></button> -->
     </div>
     <div class="modal-body">
         <div class="row justify-content-center">

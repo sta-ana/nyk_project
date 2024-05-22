@@ -7,8 +7,7 @@
             </div>
 
             <div>
-                @livewire('user.psa-file-upload')
-            </div>
+                <livewire:user.form137-file-upload :selectedStudentId="$selectedStudentId"/>
 
         </div>
     </div>

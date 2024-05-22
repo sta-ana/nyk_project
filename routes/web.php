@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SchoolYearController;
 use App\Http\Controllers\ImportController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\uploadDocuControlller;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,6 +44,9 @@ Route::middleware(['guest'])->group(function () {
     Route::get('/student/{schoolYearId}', [StudentController::class, 'showStudentData'])->name('student.show');
     Route::post('user/file-upload', [SchoolYearController::class, 'test'])->name('user.schoolyear.add');
 
+    //file
+    Route::get('/psa/show/{fileName}', [uploadDocuControlller::class, 'show'])->name('psa.show');
+    Route::get('/form137/show/{fileName}', [uploadDocuControlller::class, 'showForm137'])->name('form137.show');
     // Route::post('/schoolyear/add', [SchoolYearController::class, 'test'])->name('user.schoolyear.add');
 
 

@@ -4,7 +4,6 @@ namespace App\Http\Livewire\User;
 
 use Livewire\Component;
 use Livewire\WithFileUploads;
-use App\Models\PsaDocument;
 use Illuminate\Support\Facades\Auth;
 use App\Models\psa_document;
 
@@ -14,9 +13,11 @@ class PsaFileUpload extends Component
 
     public $selectedStudentId;
     public $PSA;
+ 
 
     public function render()
     {
+        
         return view('livewire.user.psa-file-upload');
     }
 
@@ -32,13 +33,14 @@ class PsaFileUpload extends Component
 
     $filePath = 'psa-files';
     $filename = 'psa_' . $this->selectedStudentId . '.' . $this->PSA->getClientOriginalExtension();
-    $path = $this->PSA->storeAs($filePath, $filename, 'public');
+    $path = $this->PSA->storeAs($filePath, $filename);
 
     psa_document::create([
-        'file_name' => $path,
+        'file_name' => $filename,
         'original_filename' => $this->PSA->getClientOriginalName(),
         'student_id' => $this->selectedStudentId,
     ]);
+    $this->reset(['PSA']);
 
     session()->flash('message', 'PSA file uploaded successfully.');
 }
