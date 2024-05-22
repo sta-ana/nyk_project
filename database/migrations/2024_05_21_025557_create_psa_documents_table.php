@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreatePsaDocumentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('file_upload_form137s', function (Blueprint $table) {
+        Schema::create('psa_documents', function (Blueprint $table) {
             $table->id();
+            $table->string('file_name');
+            $table->string('original_filename');
+            $table->unsignedBigInteger('student_id');
             $table->timestamps();
-            $table->string('form137');
+
+            $table->foreign('student_id')->references('id')->on('students')->onDelete('cascade');
         });
     }
 
@@ -27,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('file_upload_form137s');
+        Schema::dropIfExists('psa_documents');
     }
-};
+}

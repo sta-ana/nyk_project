@@ -11,7 +11,7 @@ class CreateSchoolYearsTable extends Migration
         if (!Schema::hasTable('school_years')) {
             Schema::create('school_years', function (Blueprint $table) {
                 $table->id();
-                $table->string('school_year');
+                $table->string('school_year')->unique();
                 $table->timestamps();
             });
         }

@@ -13,10 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('file_upload_psas', function (Blueprint $table) {
+        Schema::create('form137s', function (Blueprint $table) {
             $table->id();
+            $table->string('file_name');
+            $table->string('original_filename');
+            $table->unsignedBigInteger('student_id');
             $table->timestamps();
-            $table->string('psa');
+
+            $table->foreign('student_id')->references('id')->on('students')->onDelete('cascade');
         });
     }
 
@@ -27,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('file_upload_psas');
+        Schema::dropIfExists('form137s');
     }
 };
