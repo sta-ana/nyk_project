@@ -74,7 +74,7 @@
                                 <span>No File</span>
                                 @endif
                         </td>
-                        <td>Test</td>
+                        <td><button class="btn btn-danger btn-sm">Delete</button></td>
                     </tr>
                     @endforeach
                 </tbody>
